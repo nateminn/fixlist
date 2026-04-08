@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About FixList | FixList</title><meta name="description" content="FixList is an independent comparison and guide site for UK trade businesses.">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--black:#1C1C1C;--text:#2A2A2A;--text-mid:#5C5C5C;--text-light:#8A8A8A;--cream:#F5F3EF;--cream-dark:#EDEAE4;--green:#2D5F4A;--green-mid:#3A7A60;--green-light:#E4ECE8;--green-faint:#F0F5F2;--border:#DEDBD5;--white:#FFFFFF;--amber:#8B7355;--amber-light:#F5F0E8;--purple:#5B4A8A;--purple-light:#ECEAF3;--logo:'Bricolage Grotesque',sans-serif;--serif:'Instrument Serif',Georgia,serif;--sans:'Figtree',system-ui,sans-serif;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}body{font-family:var(--sans);background:var(--cream);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.7;}
+body::before{content:'';position:fixed;inset:0;opacity:.022;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");pointer-events:none;z-index:0;}
+header{position:sticky;top:0;z-index:100;background:rgba(245,243,239,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+.h-inner{max-width:780px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:58px;}
+.logo{font-family:var(--logo);font-weight:700;font-size:21px;color:var(--black);text-decoration:none;letter-spacing:-.5px;}.logo .dot{color:var(--green);font-weight:800;}
+nav{display:flex;align-items:center;gap:26px;}nav a{font-size:13px;font-weight:500;color:var(--text-mid);text-decoration:none;transition:color .2s;}nav a:hover{color:var(--black);}
+.nav-cta{font-size:11px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--green);border:1.5px solid var(--green);padding:7px 16px;border-radius:4px;transition:all .2s;}.nav-cta:hover{background:var(--green);color:var(--white);}
+.content{max-width:780px;margin:0 auto;padding:40px 32px 80px;position:relative;z-index:1;}
+.breadcrumbs{font-size:12px;color:var(--text-light);margin-bottom:24px;display:flex;gap:6px;align-items:center;flex-wrap:wrap;}
+.breadcrumbs a{color:var(--text-mid);text-decoration:none;}.breadcrumbs a:hover{color:var(--green);}.breadcrumbs .sep{color:var(--border);}
+.article-meta{display:flex;gap:16px;align-items:center;margin-bottom:16px;flex-wrap:wrap;}
+.meta-tag{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--green);background:var(--green-faint);padding:4px 10px;border-radius:3px;}
+.meta-date{font-size:12px;color:var(--text-light);}
+h1{font-family:var(--serif);font-weight:400;font-size:38px;line-height:1.15;color:var(--black);letter-spacing:-.8px;margin-bottom:14px;}
+h2{font-family:var(--serif);font-weight:400;font-size:26px;color:var(--black);letter-spacing:-.5px;margin-bottom:12px;}
+h3{font-size:16px;font-weight:700;color:var(--black);margin-bottom:8px;margin-top:20px;}
+p{margin-bottom:12px;color:var(--text);line-height:1.7;font-size:15px;}
+.article-intro{font-size:16px;color:var(--text-mid);line-height:1.7;margin-bottom:32px;max-width:640px;}
+a{color:var(--green);}
+
+/* ===== VISUAL COMPONENTS ===== */
+
+/* Key stats strip */
+.stats-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin:28px 0;}
+.stat-box{background:var(--white);padding:18px 20px;text-align:center;}
+.stat-box-val{font-family:var(--serif);font-size:28px;font-weight:400;color:var(--green);letter-spacing:-.5px;}
+.stat-box-label{font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--text-light);margin-top:4px;}
+
+/* Step sections */
+.step{margin:36px 0;padding-left:68px;position:relative;}
+.step-num{position:absolute;left:0;top:0;width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:var(--logo);font-weight:700;font-size:18px;color:var(--white);}
+.step-1 .step-num{background:var(--green);}
+.step-2 .step-num{background:var(--amber);}
+.step-3 .step-num{background:var(--purple);}
+.step-4 .step-num{background:#3A7A60;}
+.step-5 .step-num{background:#6B5B3E;}
+.step-6 .step-num{background:#4A3D73;}
+.step-7 .step-num{background:var(--green);}
+.step h2{margin-top:4px;}
+
+/* Niche comparison cards */
+.niche-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0;}
+.niche-card{border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--white);}
+.niche-head{padding:12px 16px;font-weight:700;font-size:13px;display:flex;align-items:center;gap:8px;}
+.niche-head svg{flex-shrink:0;}
+.niche-1 .niche-head{background:var(--green-faint);color:var(--green);}
+.niche-2 .niche-head{background:var(--amber-light);color:var(--amber);}
+.niche-3 .niche-head{background:var(--purple-light);color:var(--purple);}
+.niche-body{padding:14px 16px;font-size:13px;color:var(--text-mid);line-height:1.55;}
+.niche-body strong{color:var(--black);display:block;margin-bottom:4px;font-size:12px;}
+
+/* Cost table */
+.cost-table{width:100%;border-collapse:collapse;margin:18px 0;font-size:13px;border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.cost-table thead{background:var(--cream);}
+.cost-table th{padding:10px 16px;text-align:left;font-weight:600;font-size:11px;letter-spacing:.5px;text-transform:uppercase;color:var(--text-mid);border-bottom:1px solid var(--border);}
+.cost-table td{padding:10px 16px;border-bottom:1px solid var(--border);color:var(--text);}
+.cost-table tr:last-child td{border-bottom:none;}
+.cost-table tr:hover td{background:var(--green-faint);}
+.cost-table .cost-val{font-weight:700;color:var(--black);white-space:nowrap;}
+.cost-table .cost-total td{background:var(--cream);font-weight:700;color:var(--black);}
+
+/* Callout box */
+.callout{border-radius:8px;padding:18px 22px;margin:22px 0;display:flex;gap:14px;align-items:flex-start;}
+.callout svg{flex-shrink:0;margin-top:2px;}
+.callout-body{flex:1;font-size:14px;line-height:1.6;}
+.callout-body p{margin-bottom:6px;font-size:14px;}
+.callout-body p:last-child{margin-bottom:0;}
+.callout-tip{background:var(--green-faint);border:1px solid var(--green-light);}
+.callout-tip svg{color:var(--green);}
+.callout-warn{background:var(--amber-light);border:1px solid #E5DDD0;}
+.callout-warn svg{color:var(--amber);}
+.callout-info{background:var(--purple-light);border:1px solid #D9D5E8;}
+.callout-info svg{color:var(--purple);}
+
+/* Pricing grid */
+.price-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:18px 0;}
+.price-card{border:1px solid var(--border);border-radius:8px;background:var(--white);padding:16px 18px;}
+.price-card-title{font-weight:700;font-size:13px;color:var(--black);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.price-card-val{font-family:var(--serif);font-size:22px;color:var(--green);margin-bottom:4px;}
+.price-card-note{font-size:11px;color:var(--text-light);line-height:1.4;}
+
+/* TOC */
+.toc{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:18px 22px;margin-bottom:32px;}
+.toc-title{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-bottom:10px;}
+.toc-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:4px 20px;}
+.toc-list a{font-size:13px;color:var(--text-mid);text-decoration:none;display:flex;align-items:center;gap:8px;padding:4px 0;transition:color .15s;}
+.toc-list a:hover{color:var(--green);}
+.toc-num{font-family:var(--logo);font-size:11px;font-weight:700;color:var(--green);background:var(--green-faint);width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+
+/* CTA banner */
+.cta-banner{background:var(--black);border-radius:8px;padding:22px 26px;display:flex;align-items:center;justify-content:space-between;gap:16px;margin:32px 0;}
+.cta-banner-text{color:rgba(255,255,255,.85);font-size:14px;flex:1;}
+.cta-banner-text strong{color:var(--white);font-weight:600;}
+.cta-banner a{display:inline-block;background:var(--white);color:var(--black);font-weight:600;font-size:12px;padding:8px 18px;border-radius:5px;text-decoration:none;white-space:nowrap;transition:opacity .2s;}
+.cta-banner a:hover{opacity:.88;}
+
+/* Checklist */
+.checklist{list-style:none;padding:0;margin:16px 0;}
+.checklist li{padding:8px 0 8px 32px;position:relative;font-size:14px;color:var(--text);line-height:1.55;border-bottom:1px solid var(--border);}
+.checklist li:last-child{border-bottom:none;}
+.checklist li::before{content:'';position:absolute;left:0;top:12px;width:18px;height:18px;border-radius:5px;background:var(--green-faint);border:1.5px solid var(--green-light);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%232D5F4A' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;background-size:10px;}
+
+/* Related */
+.related{margin-top:48px;}
+.related h3{font-family:var(--serif);font-weight:400;font-size:22px;color:var(--black);margin-bottom:16px;letter-spacing:-.3px;}
+.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+.related-item{display:flex;gap:10px;padding:14px 16px;border:1px solid var(--border);border-radius:6px;text-decoration:none;color:var(--text);background:var(--white);transition:border-color .2s,transform .2s;align-items:flex-start;}
+.related-item:hover{border-color:var(--green);transform:translateY(-1px);}
+.related-bar{width:3px;min-height:28px;border-radius:2px;flex-shrink:0;margin-top:2px;background:var(--green);}
+.related-text{flex:1;}.related-title{font-weight:600;font-size:13px;color:var(--black);}.related-desc{font-size:11px;color:var(--text-light);margin-top:2px;}
+
+/* FAQ */
+.faq{margin-top:48px;}.faq h2{margin-bottom:20px;}
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0;}
+.faq-q{font-weight:600;font-size:15px;color:var(--black);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.faq-q::after{content:"+";font-size:20px;color:var(--text-light);flex-shrink:0;transition:transform .2s;}
+.faq-item.open .faq-q::after{transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;font-size:14px;color:var(--text-mid);line-height:1.65;}
+.faq-item.open .faq-a{max-height:300px;padding-top:10px;}
+
+footer{max-width:780px;margin:0 auto;padding:26px 32px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text-light);}
+footer a{color:var(--text-light);text-decoration:none;}footer a:hover{color:var(--black);}
+.footer-links{display:flex;gap:20px;}
+
+
+/* Verdict box */
+.verdict{background:var(--green-faint);border:1px solid var(--green-light);border-radius:8px;padding:20px 24px;margin-bottom:36px;}
+.verdict-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);margin-bottom:8px;}
+.verdict p{font-size:15px;color:var(--text);line-height:1.65;}
+.verdict strong{color:var(--black);font-weight:600;}
+.verdict a{color:var(--black);text-decoration:underline;text-underline-offset:3px;}
+/* Comparison table */
+.comp-table-wrap{overflow-x:auto;margin-bottom:24px;border:1px solid var(--border);border-radius:8px;background:var(--white);}
+.comp-table{width:100%;border-collapse:collapse;font-size:13px;}
+.comp-table thead{background:var(--cream);}
+.comp-table th{padding:12px 16px;text-align:left;font-weight:600;font-size:11px;letter-spacing:.5px;text-transform:uppercase;color:var(--text-mid);border-bottom:1px solid var(--border);white-space:nowrap;}
+.comp-table td{padding:12px 16px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text);}
+.comp-table tr:last-child td{border-bottom:none;}
+.comp-table tr:hover td{background:var(--green-faint);}
+.provider-name{font-weight:600;color:var(--black);white-space:nowrap;}
+.rating{color:var(--green);font-weight:700;}
+.price{font-weight:600;color:var(--black);}
+/* Provider cards */
+.provider-section{margin-bottom:40px;}
+.provider-card{border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--white);}
+.provider-card-head{background:var(--cream);padding:16px 22px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);gap:12px;flex-wrap:wrap;}
+.provider-name-big{font-family:var(--logo);font-size:21px;font-weight:700;color:var(--black);letter-spacing:-.3px;display:flex;flex-direction:column;align-items:flex-start;gap:6px;}
+.tag-best{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;background:var(--green);color:var(--white);padding:3px 9px;border-radius:3px;order:-1;}
+.provider-card-head .cta-link{margin:0;font-size:12px;padding:7px 16px;}
+.provider-facts{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border);}
+.provider-fact{padding:14px 22px;display:flex;flex-direction:column;gap:2px;border-right:1px solid var(--border);}
+.provider-fact:last-child{border-right:none;}
+.fact-label{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text-light);}
+.fact-val{font-size:16px;font-weight:700;color:var(--black);}
+.fact-val.green{color:var(--green);}
+.provider-body{padding:20px 22px;}
+/* Pros/cons */
+.pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;}
+.pros,.cons{padding:14px 18px;border-radius:6px;font-size:13px;}
+.pros{background:var(--green-faint);}.cons{background:#FBF5F0;}
+.pros-label,.cons-label{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;}
+.pros-label{color:var(--green);}.cons-label{color:#A0704C;}
+.pros ul,.cons ul{list-style:none;padding:0;margin:0;}
+.pros li,.cons li{padding:3px 0;color:var(--text);line-height:1.5;}
+.pros li::before{content:"+ ";color:var(--green);font-weight:700;}
+.cons li::before{content:"- ";color:#A0704C;font-weight:700;}
+/* CTA link */
+.cta-link{display:inline-block;font-size:13px;font-weight:600;color:var(--green);border:1.5px solid var(--green);padding:8px 18px;border-radius:5px;text-decoration:none;transition:all .2s;margin-top:4px;}
+.cta-link:hover{background:var(--green);color:var(--white);}
+/* Methodology */
+.methodology{margin-top:40px;padding:20px 24px;background:var(--white);border:1px solid var(--border);border-radius:8px;font-size:13px;color:var(--text-mid);line-height:1.65;}
+.methodology h3{margin-top:0;font-size:14px;}
+
+@media(max-width:640px){
+h1{font-size:30px}.stats-strip{grid-template-columns:1fr}.niche-grid{grid-template-columns:1fr}
+.price-grid{grid-template-columns:1fr}.toc-list{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr}
+.step{padding-left:56px}.step-num{width:40px;height:40px;font-size:15px;border-radius:10px}
+nav a:not(.nav-cta){display:none}footer{flex-direction:column;gap:10px;text-align:center}
+.cta-banner{flex-direction:column;text-align:center}.cost-table{font-size:12px}
+
+.comp-table{font-size:12px}.comp-table th,.comp-table td{padding:10px 12px}.provider-facts{grid-template-columns:repeat(2,1fr)}.provider-fact:nth-child(2){border-right:none}.provider-card-head{flex-direction:column;align-items:flex-start}.pros-cons{grid-template-columns:1fr}
+}</style></head><body>
+<header><div class="h-inner"><a href="/" class="logo">FixList<span class="dot">.</span></a><nav><a href="/">Trades</a><a href="/tradesmen/public-liability.html">Insurance</a><a href="/about.html">About</a><a href="/contact.html" class="nav-cta">Submit a Review</a></nav></div></header>
+<main class="content">
+<h1>About FixList</h1>
+
+<p class="article-intro">FixList is an independent comparison and guide site for UK trade businesses. We compare insurance providers, review suppliers, and publish startup guides for trades from barbers to driving instructors.</p>
+<h2>Who runs this?</h2>
+<p>FixList is a <a href="https://minnisandcompany.co.uk">Minnis and Company</a> project, based in Bournemouth. We are a small web and content business that builds tools and resources for independent UK businesses.</p>
+<h2>How we make money</h2>
+<p>FixList earns commission when you click through to a provider and purchase a policy or product. This does not affect our ratings or recommendations. We compare providers on their merits, not on who pays us the most. If a provider does not have an affiliate programme, we still include them if they deserve to be in the comparison.</p>
+<h2>Editorial independence</h2>
+<p>No provider can pay for a higher rating, a "top pick" badge, or preferential placement. Our rankings are based on price, cover quality, claims reputation, and ease of use. We update our comparisons quarterly and disclose our methodology on the <a href="/methodology.html">how we review</a> page.</p>
+
+</main>
+<footer><div>A <a href="https://minnisandcompany.co.uk">Minnis &amp; Company</a> project</div><div class="footer-links"><a href="/about.html">About</a><a href="/methodology.html">How we review</a><a href="/contact.html">Contact</a><a href="/privacy.html">Privacy</a></div></footer>
+</body></html>

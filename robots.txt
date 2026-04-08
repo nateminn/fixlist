@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://fixlist.co.uk/sitemap.xml
